@@ -8,4 +8,7 @@
     <string name="pekerjaan">Pekerjaan</string>
     <string name="pendapatan_bulanan">Pendapatan Bulanan</string>
     <string name="pendapatan_pertahun">Pendapatan Pertahun</string>
+    <string name="status_pernikahan">Status Pernikahan</string>
+    <string name="belum">Belum</string>
+    <string name="sudah">Sudah</string>
 </resources>
