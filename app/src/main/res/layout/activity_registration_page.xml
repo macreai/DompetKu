@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/nama_lengkap"/>
+
+        <EditText
+            android:id="@+id/nama_lengkap"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/usia"/>
+
+        <EditText
+            android:id="@+id/Usia"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/domisili"/>
+
+        <EditText
+            android:id="@+id/domisili"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/pekerjaan"/>
+
+        <EditText
+            android:id="@+id/pekerjaan"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/pendapatan_bulanan"/>
+
+        <EditText
+            android:id="@+id/pdpt_bulanan"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="99px"
+            android:layout_marginLeft="17px"
+            android:text="@string/pendapatan_pertahun"/>
+
+        <EditText
+            android:id="@+id/pdpt_pertahun"
+            android:layout_width="304dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="17px"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

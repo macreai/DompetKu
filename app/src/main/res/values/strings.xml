@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DompetKu</string>
+    <string name="registrasi">Registrasi</string>
+    <string name="result">Result</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="usia">Usia</string>
+    <string name="domisili">Domisili</string>
+    <string name="pekerjaan">Pekerjaan</string>
+    <string name="pendapatan_bulanan">Pendapatan Bulanan</string>
+    <string name="pendapatan_pertahun">Pendapatan Pertahun</string>
+</resources>
