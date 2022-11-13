@@ -18,7 +18,6 @@
             android:text="@string/nama_lengkap"/>
 
         <EditText
-            android:id="@+id/nama_lengkap"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -31,7 +30,6 @@
             android:text="@string/usia"/>
 
         <EditText
-            android:id="@+id/Usia"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -44,7 +42,6 @@
             android:text="@string/domisili"/>
 
         <EditText
-            android:id="@+id/domisili"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -57,7 +54,6 @@
             android:text="@string/pekerjaan"/>
 
         <EditText
-            android:id="@+id/pekerjaan"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -70,7 +66,6 @@
             android:text="@string/pendapatan_bulanan"/>
 
         <EditText
-            android:id="@+id/pdpt_bulanan"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -78,12 +73,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="99px"
             android:layout_marginLeft="17px"
-            android:text="@string/pendapatan_pertahun"/>
+            android:layout_marginTop="99px"
+            android:text="@string/pendapatan_pertahun" />
 
         <EditText
-            android:id="@+id/pdpt_pertahun"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -100,24 +94,52 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_sdh_menikah"
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17px"
-                android:text="@string/belum"/>
+                android:orientation="horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:text="@string/sudah"/>
+                <RadioButton
+                    android:id="@+id/belum_menikah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10px"
+                    android:text="@string/belum"/>
+
+                <RadioButton
+                    android:id="@+id/sudah_menikah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:text="@string/sudah"/>
+            </RadioGroup>
+
 
         </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="17px"
+            android:hint="Jumlah Anak Yang Ditanggung"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
 
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_menu"
+                android:layout_width="308dp"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-
+        <Button
+            android:id="@+id/next_from_regpage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_gravity="right"
+            android:layout_marginTop="50px"
+            android:layout_margin="20px"/>
     </LinearLayout>
 
 </ScrollView>

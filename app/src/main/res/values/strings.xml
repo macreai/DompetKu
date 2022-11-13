@@ -11,4 +11,6 @@
     <string name="status_pernikahan">Status Pernikahan</string>
     <string name="belum">Belum</string>
     <string name="sudah">Sudah</string>
+    <string name="name">Jhon Doe</string>
+    <string name="sisa_gaji">19000</string>
 </resources>
