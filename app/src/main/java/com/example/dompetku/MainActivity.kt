@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val moveRegis = Intent(this@MainActivity, RegistrationPage::class.java)
                 startActivity(moveRegis)
             }
+            R.id.btn_result -> {
+                val moveResult = Intent(this@MainActivity, ResultPage::class.java)
+                startActivity(moveResult)
+            }
         }
     }
 

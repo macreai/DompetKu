@@ -18,6 +18,7 @@
             android:text="@string/nama_lengkap"/>
 
         <EditText
+            android:id="@+id/edt_name"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -30,6 +31,7 @@
             android:text="@string/usia"/>
 
         <EditText
+            android:id="@+id/edt_age"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -42,6 +44,7 @@
             android:text="@string/domisili"/>
 
         <EditText
+            android:id="@+id/edt_live"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -54,6 +57,7 @@
             android:text="@string/pekerjaan"/>
 
         <EditText
+            android:id="@+id/edt_job"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -66,6 +70,7 @@
             android:text="@string/pendapatan_bulanan"/>
 
         <EditText
+            android:id="@+id/edt_month_salary"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -78,6 +83,7 @@
             android:text="@string/pendapatan_pertahun" />
 
         <EditText
+            android:id="@+id/edt_year_salary"
             android:layout_width="304dp"
             android:layout_height="40dp"
             android:layout_marginLeft="17px"/>
@@ -95,6 +101,7 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/radio_grup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -129,7 +136,7 @@
                 android:id="@+id/dropdown_menu"
                 android:layout_width="308dp"
                 android:layout_height="wrap_content"
-                android:inputType="none" />
+                android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

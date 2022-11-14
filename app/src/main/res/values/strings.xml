@@ -13,4 +13,7 @@
     <string name="sudah">Sudah</string>
     <string name="name">Jhon Doe</string>
     <string name="sisa_gaji">19000</string>
+    <string name="pengeluaran">Pengeluaran</string>
+    <string name="pemasukkan">Pemasukkan</string>
+    <string name="hutang">Hutang</string>
 </resources>
