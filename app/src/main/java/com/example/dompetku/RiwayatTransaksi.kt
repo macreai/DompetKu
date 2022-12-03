@@ -4,10 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.properties.Delegates
+import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
 
 class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
@@ -15,6 +16,10 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
     lateinit var addHutang: FloatingActionButton
     lateinit var addButton: ExtendedFloatingActionButton
     var isAllFABVisible by Delegates.notNull<Boolean>()
+
+    private lateinit var transaksi: ArrayList<Transaksi>
+    private lateinit var transaksiAdapter: TransaksiAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,27 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
         addPemasukkanPengeluaran.setOnClickListener(this)
         addHutang.setOnClickListener(this)
 
+        transaksi = arrayListOf()
+
+        transaksiAdapter = TransaksiAdapter(transaksi)
+        linearLayoutManager = LinearLayoutManager(this)
+
+        rv_list_daftar_barang.apply {
+            adapter = transaksiAdapter
+            layoutManager = linearLayoutManager
+        }
+
+        updateDashboard()
+
+    }
+
+    private fun updateDashboard(){
+        val totalAmount = transaksi.map { it.amount }.sum()
+        val budgetAmount = transaksi.filter { it.amount > 0 }.map{it.amount}.sum()
+        val expenseAmount = totalAmount - budgetAmount
+
+        budget.text = "Rp %.2f".format(budgetAmount)
+        expense.text = "Rp %.2f".format(expenseAmount)
     }
 
     override fun onClick(v: View?) {
@@ -51,7 +77,7 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
         when (v?.id){
             R.id.btn_pemasukkan_pengeluaran -> {
-                val movePemasukkanPengeluaran = Intent(this@RiwayatTransaksi, Pengeluaran::class.java)
+                val movePemasukkanPengeluaran = Intent(this@RiwayatTransaksi, PengeluaranPemasukkan::class.java)
                 startActivity(movePemasukkanPengeluaran)
             }
             R.id.btn_hutang -> {
