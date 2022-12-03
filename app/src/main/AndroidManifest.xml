@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,13 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DompetKu"
         tools:targetApi="31">
-        <activity
-            android:name=".ResultPage"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        <receiver android:name=".Notification"
+            android:enabled="true"/>
         <activity
             android:name=".Hutang"
             android:exported="false">
@@ -28,20 +24,6 @@
         </activity>
         <activity
             android:name=".Pengeluaran"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Pemasukkan"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".AddList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,13 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".RegistrationPage"
-            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

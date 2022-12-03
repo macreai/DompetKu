@@ -10,4 +10,6 @@
     <color name="winter">#85F4FF</color>
     <color name="winter_light">#42C2FF</color>
     <color name="winter_dark">#B8FFF9</color>
+    <color name="red">#d50000</color>
+    <color name="green">#00c853</color>
 </resources>

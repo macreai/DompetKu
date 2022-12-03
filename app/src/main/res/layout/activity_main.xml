@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/splash_bg">
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="300dp"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@color/winter_dark">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/awal_saldo"
+                android:layout_width="293dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Masukkan Saldo Awal"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:background="@android:color/transparent"
+                />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:id="@+id/btn_regis"
-        style="@style/btn_regres"
-        android:layout_marginTop="251sp"
-        android:text="@string/registrasi"/>
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="100dp"
+        android:text="submit"
+        />
 
-    <Button
-        android:id="@+id/btn_result"
-        style="@style/btn_regres"
-        android:layout_marginTop="93px"
-        android:text="@string/result"/>
 
 </LinearLayout>

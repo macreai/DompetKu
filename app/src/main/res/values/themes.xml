@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DompetKu" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.DompetKu" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/winter_light</item>
         <item name="colorPrimaryVariant">@color/winter_light</item>
@@ -21,4 +21,13 @@
         <item name="android:layout_gravity">center</item>
 
     </style>
+
+    <style name="Theme.DompetKu.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.DompetKu.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.DompetKu.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
