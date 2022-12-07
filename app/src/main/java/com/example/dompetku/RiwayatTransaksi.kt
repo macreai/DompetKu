@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
@@ -17,9 +20,10 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
     lateinit var addButton: ExtendedFloatingActionButton
     var isAllFABVisible by Delegates.notNull<Boolean>()
 
-    private lateinit var transaksi: ArrayList<Transaksi>
+    private lateinit var transaksi: List<Transaksi>
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +53,23 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
             layoutManager = linearLayoutManager
         }
 
-        updateDashboard()
+        db = Room.databaseBuilder(this,
+            AppDatabase::class.java,
+            "transaksi").build()
+
+
+
+    }
+
+    private fun fetchAll(){
+        GlobalScope.launch {
+            transaksi = db.transaksiDao().getAll()
+
+            runOnUiThread{
+                updateDashboard()
+                transaksiAdapter.setData(transaksi)
+            }
+        }
 
     }
 
@@ -60,6 +80,11 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
         budget.text = "Rp %.2f".format(budgetAmount)
         expense.text = "Rp %.2f".format(expenseAmount)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchAll()
     }
 
     override fun onClick(v: View?) {

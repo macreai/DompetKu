@@ -16,7 +16,7 @@ class TransaksiAdapter(private var transaksi: List<Transaksi>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransaksiHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_riwayat_transaksi, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.transaksi, parent, false)
         return TransaksiHolder(view)
     }
 
@@ -37,5 +37,10 @@ class TransaksiAdapter(private var transaksi: List<Transaksi>):
 
     override fun getItemCount(): Int {
         return transaksi.size
+    }
+
+    fun setData(transaksi: List<Transaksi>){
+        this.transaksi = transaksi
+        notifyDataSetChanged()
     }
 }
