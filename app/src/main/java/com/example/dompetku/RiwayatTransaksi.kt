@@ -4,10 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
 import kotlinx.coroutines.GlobalScope
@@ -20,7 +24,9 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
     lateinit var addButton: ExtendedFloatingActionButton
     var isAllFABVisible by Delegates.notNull<Boolean>()
 
+    private lateinit var deletedTransaksi: Transaksi
     private lateinit var transaksi: List<Transaksi>
+    private lateinit var transaksiLama: List<Transaksi>
     private lateinit var transaksiAdapter: TransaksiAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var db: AppDatabase
@@ -55,9 +61,25 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
         db = Room.databaseBuilder(this,
             AppDatabase::class.java,
-            "transaksi").build()
+            "transaksi").allowMainThreadQueries().build()
 
+        val itemTouchHelper = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
 
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                deleteTransaksi(transaksi[viewHolder.adapterPosition])
+            }
+
+        }
+
+        val swipeHelper = ItemTouchHelper(itemTouchHelper)
+        swipeHelper.attachToRecyclerView(rv_list_daftar_barang)
 
     }
 
@@ -80,6 +102,43 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
 
         budget.text = "Rp %.2f".format(budgetAmount)
         expense.text = "Rp %.2f".format(expenseAmount)
+    }
+
+    private fun deleteTransaksi(transaksii: Transaksi){
+        deletedTransaksi = transaksii
+        transaksiLama = transaksi
+
+        GlobalScope.launch {
+            db.transaksiDao().delete(transaksii)
+
+            transaksi = transaksi.filter { it.id != transaksii.id }
+            runOnUiThread {
+                updateDashboard()
+                transaksiAdapter.setData(transaksi)
+                showSnackbar()
+            }
+        }
+    }
+
+    private fun showSnackbar() {
+        val view = findViewById<View>(R.id.coordinator)
+        val snackbar = Snackbar.make(view, "Transaksi Dihapus", Snackbar.LENGTH_LONG)
+        snackbar.setAction("Undo"){
+            undoDelete()
+        }
+            .setActionTextColor(ContextCompat.getColor(this,R.color.red))
+            .setActionTextColor(ContextCompat.getColor(this,R.color.white))
+            .show()
+    }
+
+    private fun undoDelete() {
+        db.transaksiDao().insertAll(deletedTransaksi)
+
+        transaksi = transaksiLama
+        runOnUiThread{
+            transaksiAdapter.setData(transaksi)
+            updateDashboard()
+        }
     }
 
     override fun onResume() {
