@@ -25,10 +25,10 @@ class TransaksiAdapter(private var transaksi: List<Transaksi>):
         val context = holder.amount.context
 
         if(transaksi.amount >= 0){
-            holder.amount.text = "+ Rp%.2f".format(transaksi.amount)
+            holder.amount.text = "+ Rp%.1f".format(transaksi.amount)
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
         } else {
-            holder.amount.text = "- Rp%.2f".format(Math.abs(transaksi.amount))
+            holder.amount.text = "- Rp%.1f".format(Math.abs(transaksi.amount))
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
         }
 

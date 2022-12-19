@@ -62,7 +62,7 @@
                 android:drawableStart="@drawable/add_pengeluaran"
                 android:drawablePadding="12dp"
                 android:maxLines="1"
-                android:inputType="numberDecimal|numberSigned"/>
+                android:inputType="number|numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

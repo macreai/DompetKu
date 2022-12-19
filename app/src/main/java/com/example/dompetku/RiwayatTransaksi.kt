@@ -100,8 +100,8 @@ class RiwayatTransaksi : AppCompatActivity(), View.OnClickListener {
         val budgetAmount = transaksi.filter { it.amount > 0 }.map{it.amount}.sum()
         val expenseAmount = totalAmount - budgetAmount
 
-        budget.text = "Rp %.2f".format(budgetAmount)
-        expense.text = "Rp %.2f".format(expenseAmount)
+        budget.text = "Rp %.1f".format(budgetAmount)
+        expense.text = "Rp %.1f".format(expenseAmount)
     }
 
     private fun deleteTransaksi(transaksii: Transaksi){
