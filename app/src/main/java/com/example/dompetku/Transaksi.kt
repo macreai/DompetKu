@@ -9,4 +9,4 @@ data class Transaksi(
     val label: String,
     val amount: Double,
     val desc: String
-)
+): java.io.Serializable
