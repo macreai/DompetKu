@@ -14,7 +14,7 @@ import androidx.room.Room
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_riwayat_transaksi.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_riwayat_transaksi)
+        setContentView(R.layout.activity_main)
 
         addPemasukkanPengeluaran = findViewById(R.id.btn_pemasukkan_pengeluaran)
         addHutang = findViewById(R.id.btn_hutang)
